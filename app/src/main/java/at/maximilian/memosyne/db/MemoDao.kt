@@ -14,7 +14,7 @@ interface MemoDao {
     fun loadAllByIds(memoIds: IntArray): List<Memo>
 
     @Insert
-    fun insertAll(vararg memos: Memo)
+    fun insertMemo(memo: Memo)
 
     @Delete
     fun delete(memo: Memo)
