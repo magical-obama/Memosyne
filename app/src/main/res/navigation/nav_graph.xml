@@ -31,6 +31,6 @@
     <fragment
         android:id="@+id/AddMemoFragment"
         android:name="at.maximilian.memosyne.AddMemoFragment"
-        android:label="fragment_add_memo"
+        android:label="@string/add_memo_fragment_label"
         tools:layout="@layout/fragment_add_memo" />
 </navigation>
