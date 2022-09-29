@@ -6,38 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".AddMemoFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/side_magin"
-        android:paddingTop="8dp"
-        android:paddingEnd="@dimen/side_magin"
-        android:text="Add a new memo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editText_memoContent"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/side_magin"
-        android:layout_marginEnd="@dimen/side_magin"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:lines="4"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/side_margin"
+        android:inputType="textMultiLine|text"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_new_memo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btn_add_new_memo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/side_magin"
+        android:layout_marginEnd="@dimen/side_margin"
         android:layout_marginBottom="8dp"
         android:text="Add a new Memo"
         app:layout_constraintBottom_toBottomOf="parent"
