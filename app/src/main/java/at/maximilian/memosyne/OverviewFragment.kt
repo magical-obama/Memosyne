@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 
@@ -33,7 +34,7 @@ class OverviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_OverviewFragment_to_SecondFragment)
+            Toast.makeText(context, "Not currently used", Toast.LENGTH_SHORT).show()
         }
 
         binding.fabAddMemo.setOnClickListener {
