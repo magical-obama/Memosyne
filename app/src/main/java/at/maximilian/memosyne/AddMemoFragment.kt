@@ -13,6 +13,7 @@ import at.maximilian.memosyne.db.AppDatabase
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.db.ioThread
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class AddMemoFragment : Fragment() {
 
@@ -33,12 +34,21 @@ class AddMemoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // TODO: Recover from ViewModel
         viewModel = ViewModelProvider(this)[AddMemoViewModel::class.java]
+        view.findViewById<EditText>(R.id.editText_memoTitle).setText(viewModel.title)
         view.findViewById<EditText>(R.id.editText_memoContent).setText(viewModel.content)
 
         view.findViewById<Button>(R.id.btn_add_new_memo).setOnClickListener {
             val db = AppDatabase.getInstance(view.context)
             val memo =
-                Memo(content = view.findViewById<EditText>(R.id.editText_memoContent).text.toString())
+                Memo(
+                    title = view.findViewById<EditText>(R.id.editText_memoTitle).text.toString(),
+                    content = view.findViewById<EditText>(R.id.editText_memoContent).text.toString()
+                )
+            if (memo.title.isBlank()) {
+                Snackbar.make(view, "You need to give the memo a title", Snackbar.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
             ioThread {
                 db.memoDao().insertMemo(memo)
             }
