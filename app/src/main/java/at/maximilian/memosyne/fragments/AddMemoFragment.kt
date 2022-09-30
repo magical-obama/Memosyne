@@ -1,4 +1,4 @@
-package at.maximilian.memosyne
+package at.maximilian.memosyne.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,11 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import at.maximilian.memosyne.R
 import at.maximilian.memosyne.db.AppDatabase
 import at.maximilian.memosyne.db.Memo
-import at.maximilian.memosyne.db.ioThread
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.coroutineScope
 
 class AddMemoFragment : Fragment() {
 

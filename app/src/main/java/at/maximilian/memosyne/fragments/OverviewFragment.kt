@@ -1,4 +1,4 @@
-package at.maximilian.memosyne
+package at.maximilian.memosyne.fragments
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -50,6 +51,7 @@ class OverviewFragment : Fragment() {
     /**
      *  Setup the menu items for this fragment
      *  @param view The fragment's view
+     *  @return [Unit]
      */
     private fun setupMenu(view: View) {
         (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
