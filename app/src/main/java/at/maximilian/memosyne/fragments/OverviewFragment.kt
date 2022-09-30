@@ -6,6 +6,10 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import at.maximilian.memosyne.App
+import at.maximilian.memosyne.MemoAdapter
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -27,16 +31,17 @@ class OverviewFragment : Fragment() {
     ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
         setupMenu(binding.root)
-        return binding.root
+        val view = binding.root
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_memos)
+        val adapter = MemoAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(App().applicationContext)
 
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonFirst.setOnClickListener {
-            Snackbar.make(view, "Not currently used", Snackbar.LENGTH_LONG).show()
-        }
 
         binding.fabAddMemo.setOnClickListener {
             findNavController().navigate(R.id.action_OverviewFragment_to_AddMemoFragment)

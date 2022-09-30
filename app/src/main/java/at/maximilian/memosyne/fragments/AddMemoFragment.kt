@@ -9,6 +9,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import at.maximilian.memosyne.App
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.db.AppDatabase
 import at.maximilian.memosyne.db.Memo
@@ -38,7 +39,7 @@ class AddMemoFragment : Fragment() {
         view.findViewById<EditText>(R.id.editText_memoContent).setText(viewModel.content)
 
         view.findViewById<Button>(R.id.btn_add_new_memo).setOnClickListener {
-            val db = AppDatabase.getInstance(view.context)
+            val db = App().database
             val memo =
                 Memo(
                     title = view.findViewById<EditText>(R.id.editText_memoTitle).text.toString(),
