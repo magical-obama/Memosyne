@@ -16,6 +16,9 @@ interface MemoDao {
     @Insert
     fun insertMemo(memo: Memo)
 
+    @Insert
+    fun insertAllMemos(vararg memos: Memo)
+
     @Delete
     fun delete(memo: Memo)
 }
