@@ -14,6 +14,7 @@ import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.db.ioThread
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.coroutineScope
 
 class AddMemoFragment : Fragment() {
 
@@ -49,7 +50,7 @@ class AddMemoFragment : Fragment() {
                     .show()
                 return@setOnClickListener
             }
-            ioThread {
+            suspend {
                 db.memoDao().insertMemo(memo)
             }
             findNavController().navigateUp()
