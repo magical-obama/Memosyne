@@ -2,10 +2,9 @@ package at.maximilian.memosyne
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -24,7 +23,7 @@ class OverviewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
         setupMenu(binding.root)
         return binding.root
@@ -67,7 +66,6 @@ class OverviewFragment : Fragment() {
                     else -> false
                 }
             }
-
         })
     }
 }
