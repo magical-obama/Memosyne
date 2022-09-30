@@ -1,6 +1,5 @@
 package at.maximilian.memosyne
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import at.maximilian.memosyne.db.Memo
 
-class MemoAdapter(val context: Context, private val dataSet: List<Memo>) :
+class MemoAdapter(private val dataSet: List<Memo>) :
     RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,7 +26,7 @@ class MemoAdapter(val context: Context, private val dataSet: List<Memo>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder
+        holder.textViewTitle.text = dataSet[position].title
     }
 
     override fun getItemCount() = dataSet.size
