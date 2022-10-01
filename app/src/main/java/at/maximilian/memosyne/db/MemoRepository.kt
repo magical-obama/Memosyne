@@ -3,21 +3,17 @@ package at.maximilian.memosyne.db
 import androidx.lifecycle.LiveData
 import at.maximilian.memosyne.App
 
-class MemoRepository {
-    private val memoDao: MemoDao
-    private val memoData: LiveData<List<Memo>>
+/**
+ * Repository for the Memo class.
+ */
+class MemoRepository(private val memoDao: MemoDao) {
+    fun getAllMemos() = memoDao.getAllMemos()
 
-    init {
-        val db = App().database
-        this.memoDao = db.memoDao()
-        this.memoData = db.memoDao().getAll()
-    }
+    fun getMemoById(memoId: Int) = memoDao.getMemoById(memoId)
 
-    fun getAllData(): LiveData<List<Memo>> {
-        return memoData
-    }
+    fun insertMemo(memo: Memo) = memoDao.insertMemo(memo)
 
-    suspend fun insert() {
+    fun insertAllMemos(vararg memos: Memo) = memoDao.insertAllMemos(*memos)
 
-    }
+    fun delete(memo: Memo) = memoDao.delete(memo)
 }
