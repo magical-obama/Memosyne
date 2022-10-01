@@ -12,6 +12,7 @@ import at.maximilian.memosyne.App
 import at.maximilian.memosyne.MemoAdapter
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
+import at.maximilian.memosyne.db.Memo
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -33,8 +34,8 @@ class OverviewFragment : Fragment() {
         setupMenu(binding.root)
         val view = binding.root
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_memos)
-        val adapter = MemoAdapter()
-        recyclerView.adapter = adapter
+        // val adapter = MemoAdapter()
+        // recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(App().applicationContext)
 
         return view
