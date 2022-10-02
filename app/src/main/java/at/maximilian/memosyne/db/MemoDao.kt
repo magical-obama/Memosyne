@@ -1,5 +1,6 @@
 package at.maximilian.memosyne.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -11,7 +12,7 @@ import androidx.room.Query
 @Dao
 interface MemoDao {
     @Query("SELECT * FROM memo")
-    fun getAllMemos(): List<Memo>
+    fun getAllMemos(): LiveData<List<Memo>>
 
     @Query("SELECT * FROM memo WHERE uid IN (:memoId)")
     fun getMemoById(memoId: Int): Memo

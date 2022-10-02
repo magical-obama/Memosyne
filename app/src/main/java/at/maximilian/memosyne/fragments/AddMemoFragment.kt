@@ -43,6 +43,7 @@ class AddMemoFragment : Fragment() {
         view.findViewById<Button>(R.id.btn_add_new_memo).setOnClickListener {
             val memo =
                 Memo(
+                    uid = null,
                     title = view.findViewById<EditText>(R.id.editText_memoTitle).text.toString(),
                     content = view.findViewById<EditText>(R.id.editText_memoContent).text.toString()
                 )
@@ -51,8 +52,7 @@ class AddMemoFragment : Fragment() {
                     .show()
                 return@setOnClickListener
             }
-            val db = App().database
-            MemoRepository(db.memoDao()).insertMemo(memo)
+            viewModel.insertMemo(memo)
             findNavController().navigateUp()
         }
     }

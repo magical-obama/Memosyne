@@ -6,12 +6,15 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import at.maximilian.memosyne.MemoAdapter
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
+import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.viewmodels.OverviewViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -43,7 +46,7 @@ class OverviewFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_memos)
         val adapter = MemoAdapter()
         recyclerView.adapter = adapter
-        adapter.submitList(viewModel.memos)
+        subscribeToUiChanges(adapter)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
@@ -88,7 +91,13 @@ class OverviewFragment : Fragment() {
         return menuProvider
     }
 
-    fun clearToolbarMenu(menuProvider: MenuProvider) {
+    private fun clearToolbarMenu(menuProvider: MenuProvider) {
         (requireActivity() as MenuHost).removeMenuProvider(menuProvider)
+    }
+
+    private fun subscribeToUiChanges(adapter: ListAdapter<Memo, RecyclerView.ViewHolder>) {
+        viewModel.allMemos.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
     }
 }
