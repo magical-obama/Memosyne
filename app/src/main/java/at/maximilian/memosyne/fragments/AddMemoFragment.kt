@@ -16,6 +16,9 @@ import at.maximilian.memosyne.db.MemoRepository
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * [Fragment] for creating a new Memo
+ */
 class AddMemoFragment : Fragment() {
 
     companion object {

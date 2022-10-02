@@ -16,9 +16,8 @@ import at.maximilian.memosyne.viewmodels.OverviewViewModel
 import com.google.android.material.snackbar.Snackbar
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * [Fragment] used for displaying all memo's currently stored
  */
-
 class OverviewFragment : Fragment() {
 
     companion object {

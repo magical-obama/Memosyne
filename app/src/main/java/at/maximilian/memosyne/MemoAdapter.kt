@@ -1,15 +1,16 @@
 package at.maximilian.memosyne
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import at.maximilian.memosyne.databinding.MemoRowItemBinding
 import at.maximilian.memosyne.db.Memo
 
+/**
+ * Adapter for the [RecyclerView], derived from the [ListAdapter]
+ */
 class MemoAdapter() :
     ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
 
