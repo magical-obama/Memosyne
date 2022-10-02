@@ -15,6 +15,4 @@ import at.maximilian.memosyne.fragments.OverviewFragment
 class OverviewViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = MemoRepository(application)
     val allMemos = repository.getAllMemos()
-
-    var menuProvider: MenuProvider? = null
 }
