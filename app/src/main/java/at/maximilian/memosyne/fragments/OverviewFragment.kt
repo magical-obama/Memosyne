@@ -5,22 +5,26 @@ import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import at.maximilian.memosyne.App
 import at.maximilian.memosyne.MemoAdapter
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
-import at.maximilian.memosyne.db.Memo
+import at.maximilian.memosyne.viewmodels.OverviewViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+
+@AndroidEntryPoint
 class OverviewFragment : Fragment() {
 
     private var _binding: FragmentOverviewBinding? = null
+    private val viewModel: OverviewViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,9 +38,12 @@ class OverviewFragment : Fragment() {
         setupMenu(binding.root)
         val view = binding.root
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_memos)
-        // val adapter = MemoAdapter()
-        // recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(App().applicationContext)
+        if (activity != null) {
+            val adapter = MemoAdapter()
+            recyclerView.adapter = adapter
+            subscribeUi(adapter)
+        }
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
     }
@@ -75,5 +82,11 @@ class OverviewFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun subscribeUi(adapter: MemoAdapter) {
+        viewModel.memos.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
     }
 }

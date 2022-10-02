@@ -4,30 +4,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import at.maximilian.memosyne.databinding.MemoRowItemBinding
 import at.maximilian.memosyne.db.Memo
 
-class MemoAdapter(private val dataSet: List<Memo>) :
-    RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
+class MemoAdapter() :
+    ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textViewTitle: TextView
-
+    class MemoViewHolder(private val binding: MemoRowItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
             // TODO: Implement members
-            textViewTitle = view.findViewById(R.id.textView_memoTitle)
+        }
+
+        fun bind(item: Memo) {
+            binding.apply {
+                textViewMemoTitle.text = item.title
+            }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemoViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.memo_row_item, parent, false)
-        return ViewHolder(view)
+            MemoRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MemoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textViewTitle.text = dataSet[position].title
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val memo = getItem(position)
+        (holder as MemoViewHolder).bind(memo)
+    }
+}
+
+private class MemoDiffCallback : DiffUtil.ItemCallback<Memo>() {
+    override fun areItemsTheSame(oldItem: Memo, newItem: Memo): Boolean {
+        return oldItem.uid == newItem.uid
     }
 
-    override fun getItemCount() = dataSet.size
+    override fun areContentsTheSame(oldItem: Memo, newItem: Memo): Boolean {
+        return oldItem == newItem
+    }
+
 }

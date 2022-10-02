@@ -1,5 +1,6 @@
 package at.maximilian.memosyne.db
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,10 +14,10 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(): AppDatabase =
+        fun getInstance(context: Context): AppDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
-                    App().applicationContext,
+                    context,
                     AppDatabase::class.java,
                     "memo-database"
                 ).build().also { INSTANCE = it }

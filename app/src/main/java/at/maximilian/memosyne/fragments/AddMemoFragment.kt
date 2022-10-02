@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import at.maximilian.memosyne.App
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.db.AppDatabase
 import at.maximilian.memosyne.db.Memo
+import at.maximilian.memosyne.db.MemoRepository
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -22,7 +24,7 @@ class AddMemoFragment : Fragment() {
         fun newInstance() = AddMemoFragment()
     }
 
-    private lateinit var viewModel: AddMemoViewModel
+    private val viewModel: AddMemoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,12 +36,10 @@ class AddMemoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // TODO: Recover from ViewModel
-        viewModel = ViewModelProvider(this)[AddMemoViewModel::class.java]
         view.findViewById<EditText>(R.id.editText_memoTitle).setText(viewModel.title)
         view.findViewById<EditText>(R.id.editText_memoContent).setText(viewModel.content)
 
         view.findViewById<Button>(R.id.btn_add_new_memo).setOnClickListener {
-            val db = App().database
             val memo =
                 Memo(
                     title = view.findViewById<EditText>(R.id.editText_memoTitle).text.toString(),
@@ -50,9 +50,8 @@ class AddMemoFragment : Fragment() {
                     .show()
                 return@setOnClickListener
             }
-            suspend {
-                db.memoDao().insertMemo(memo)
-            }
+            val db = App().database
+            MemoRepository(db.memoDao()).insertMemo(memo)
             findNavController().navigateUp()
         }
     }
