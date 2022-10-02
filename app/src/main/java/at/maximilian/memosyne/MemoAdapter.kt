@@ -11,14 +11,10 @@ import at.maximilian.memosyne.db.Memo
 /**
  * Adapter for the [RecyclerView], derived from the [ListAdapter]
  */
-class MemoAdapter() :
-    ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
+class MemoAdapter : ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
 
     class MemoViewHolder(private val binding: MemoRowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
-            // TODO: Implement members
-        }
 
         fun bind(item: Memo) {
             binding.apply {
@@ -28,8 +24,7 @@ class MemoAdapter() :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemoViewHolder {
-        val view =
-            MemoRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = MemoRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MemoViewHolder(view)
     }
 
@@ -47,5 +42,4 @@ private class MemoDiffCallback : DiffUtil.ItemCallback<Memo>() {
     override fun areContentsTheSame(oldItem: Memo, newItem: Memo): Boolean {
         return oldItem == newItem
     }
-
 }
