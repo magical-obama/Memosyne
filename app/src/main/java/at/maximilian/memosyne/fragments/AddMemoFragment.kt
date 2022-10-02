@@ -8,11 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import at.maximilian.memosyne.App
 import at.maximilian.memosyne.R
-import at.maximilian.memosyne.db.AppDatabase
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.db.MemoRepository
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel

@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 /**
  * Data Access Object for the Memo class.
@@ -12,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MemoDao {
     @Query("SELECT * FROM memo")
-    fun getAllMemos(): Flow<List<Memo>>
+    fun getAllMemos(): List<Memo>
 
     @Query("SELECT * FROM memo WHERE uid IN (:memoId)")
-    fun getMemoById(memoId: Int): Flow<Memo>
+    fun getMemoById(memoId: Int): Memo
 
     @Insert
     fun insertMemo(memo: Memo)

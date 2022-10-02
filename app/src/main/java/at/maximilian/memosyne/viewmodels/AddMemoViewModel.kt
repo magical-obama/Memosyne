@@ -11,6 +11,6 @@ class AddMemoViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     var title: String = ""
     var content: String = ""
-    val memos: LiveData<List<Memo>> =
-        MemoRepository(App().database.memoDao()).getAllMemos().asLiveData()
+    val memos: List<Memo> =
+        MemoRepository(App().database.memoDao()).getAllMemos()
 }

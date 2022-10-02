@@ -14,17 +14,20 @@ import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import at.maximilian.memosyne.viewmodels.OverviewViewModel
 import com.google.android.material.snackbar.Snackbar
-import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 
-@AndroidEntryPoint
 class OverviewFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = OverviewFragment()
+    }
 
     private var _binding: FragmentOverviewBinding? = null
     private val viewModel: OverviewViewModel by viewModels()
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,14 +38,13 @@ class OverviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
-        setupMenu(binding.root)
+        viewModel.menuProvider = setupMenu(binding.root)
         val view = binding.root
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_memos)
-        if (activity != null) {
-            val adapter = MemoAdapter()
-            recyclerView.adapter = adapter
-            subscribeUi(adapter)
-        }
+        val adapter = MemoAdapter()
+        recyclerView.adapter = adapter
+        adapter.submitList(viewModel.memos)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
@@ -58,6 +60,7 @@ class OverviewFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        viewModel.menuProvider?.let { clearToolbarMenu(it) }
         _binding = null
     }
 
@@ -66,10 +69,10 @@ class OverviewFragment : Fragment() {
      *  @param view The fragment's view
      *  @return [Unit]
      */
-    private fun setupMenu(view: View) {
-        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+    private fun setupMenu(view: View): MenuProvider {
+        val menuProvider = object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.menu_main, menu)
+                menuInflater.inflate(R.menu.menu_overview, menu)
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -81,12 +84,12 @@ class OverviewFragment : Fragment() {
                     else -> false
                 }
             }
-        })
+        }
+        (requireActivity() as MenuHost).addMenuProvider(menuProvider)
+        return menuProvider
     }
 
-    private fun subscribeUi(adapter: MemoAdapter) {
-        viewModel.memos.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+    fun clearToolbarMenu(menuProvider: MenuProvider) {
+        (requireActivity() as MenuHost).removeMenuProvider(menuProvider)
     }
 }

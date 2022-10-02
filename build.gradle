@@ -5,9 +5,9 @@ buildscript {
         roomVersion = '2.4.3'
     }
 
-    dependencies {
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
-    }
+//    dependencies {
+//        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+//    }
 }
 
 plugins {

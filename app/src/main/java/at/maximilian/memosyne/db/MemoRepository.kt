@@ -1,8 +1,5 @@
 package at.maximilian.memosyne.db
 
-import androidx.lifecycle.LiveData
-import at.maximilian.memosyne.App
-
 /**
  * Repository for the Memo class.
  */
