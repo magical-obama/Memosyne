@@ -6,8 +6,6 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
@@ -17,7 +15,6 @@ import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.viewmodels.OverviewViewModel
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * [Fragment] used for displaying all memo's currently stored
@@ -58,7 +55,7 @@ class OverviewFragment : Fragment() {
         binding.recyclerViewMemos.layoutManager = LinearLayoutManager(context)
 
         // Register menu items and handle menu click events
-        setupMenu(view)
+        setupMenu()
     }
 
     override fun onDestroyView() {
@@ -68,9 +65,8 @@ class OverviewFragment : Fragment() {
 
     /**
      *  Setup the menu items for this fragment and handle click events on the menu
-     *  @param view The fragment's view
      */
-    private fun setupMenu(view: View) {
+    private fun setupMenu() {
         (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.menu_overview, menu)
@@ -79,7 +75,7 @@ class OverviewFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.action_settings -> {
-                        Snackbar.make(view, "Not used", Snackbar.LENGTH_LONG).show()
+                        findNavController().navigate(R.id.action_OverviewFragment_to_settingsFragment)
                         return true
                     }
                     else -> false

@@ -1,0 +1,12 @@
+package at.maximilian.memosyne.fragments
+
+import android.os.Bundle
+import androidx.preference.PreferenceFragmentCompat
+import at.maximilian.memosyne.R
+
+class SettingsFragment : PreferenceFragmentCompat() {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.root_preferences, rootKey)
+    }
+}

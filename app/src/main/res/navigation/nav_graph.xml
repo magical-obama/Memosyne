@@ -14,10 +14,17 @@
         <action
             android:id="@+id/action_OverviewFragment_to_AddMemoFragment"
             app:destination="@id/AddMemoFragment" />
+        <action
+            android:id="@+id/action_OverviewFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/AddMemoFragment"
         android:name="at.maximilian.memosyne.fragments.AddMemoFragment"
         android:label="@string/add_memo_fragment_label"
         tools:layout="@layout/fragment_add_memo" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="at.maximilian.memosyne.fragments.SettingsFragment"
+        android:label="@string/settings_fragment_label" />
 </navigation>
