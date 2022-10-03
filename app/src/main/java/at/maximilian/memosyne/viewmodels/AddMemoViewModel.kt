@@ -18,17 +18,11 @@ class AddMemoViewModel(application: Application) : AndroidViewModel(application)
     // TODO: Implement the ViewModel
     var title: String = ""
     var content: String = ""
-    private val repository: MemoRepository
-    private val allMemos: LiveData<List<Memo>>
+    private val repository = MemoRepository(application)
 
-    init {
-        repository = MemoRepository(application)
-        allMemos = repository.getAllMemos()
-    }
-
-    fun getAllMemos() = allMemos
+    fun getAllMemos() = repository.getAllMemos()
     fun insertMemo(memo: Memo) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             repository.insertMemo(memo)
         }
     }

@@ -2,6 +2,9 @@ package at.maximilian.memosyne.db
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.coroutineScope
 
 /**
  * Repository for the Memo class.
@@ -20,9 +23,9 @@ class MemoRepository(application: Application) {
 
     fun getMemoById(memoId: Int) = memoDao.getMemoById(memoId)
 
-    fun insertMemo(memo: Memo) = memoDao.insertMemo(memo)
+    suspend fun insertMemo(memo: Memo) = memoDao.insertMemo(memo)
 
-    fun insertAllMemos(vararg memos: Memo) = memoDao.insertAllMemos(*memos)
+    suspend fun insertAllMemos(vararg memos: Memo) = memoDao.insertAllMemos(*memos)
 
-    fun delete(memo: Memo) = memoDao.delete(memo)
+    suspend fun delete(memo: Memo) = memoDao.delete(memo)
 }

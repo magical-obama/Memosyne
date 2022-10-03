@@ -1,9 +1,11 @@
 package at.maximilian.memosyne.db
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 /**
@@ -17,12 +19,12 @@ interface MemoDao {
     @Query("SELECT * FROM memo WHERE uid IN (:memoId)")
     fun getMemoById(memoId: Int): Memo
 
-    @Insert
-    fun insertMemo(memo: Memo)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMemo(memo: Memo)
 
-    @Insert
-    fun insertAllMemos(vararg memos: Memo)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAllMemos(vararg memos: Memo)
 
     @Delete
-    fun delete(memo: Memo)
+    suspend fun delete(memo: Memo)
 }
