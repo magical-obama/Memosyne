@@ -27,6 +27,8 @@
         android:layout_margin="@dimen/side_margin"
         android:importantForAutofill="no"
         android:inputType="textMultiLine|text"
+        android:gravity="top|start"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@id/editText_memoTitle"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_new_memo"
         app:layout_constraintEnd_toEndOf="parent"
