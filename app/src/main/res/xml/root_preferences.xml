@@ -4,7 +4,7 @@
     <PreferenceCategory app:title="General">
 
         <ListPreference
-            android:defaultValue="MODE_NIGHT_FOLLOW_SYSTEM"
+            android:defaultValue="-1"
             android:title="Theme"
             app:key="theme"
             android:entries="@array/theme_entries"
