@@ -51,14 +51,10 @@ class OverviewFragment : Fragment() {
         }
 
         // Setup the recycler view
-        val adapter = MemoAdapter(object : OnItemClickListener {
-            override fun onItemClick(item: Memo) {
-                Log.d("Item Click", "You have clicked on the memo with the title ${item.title}")
-            }
-        })
+        val adapter = MemoAdapter(viewModel)
         binding.recyclerViewMemos.adapter = adapter
-        subscribeToUiChanges(adapter)
         binding.recyclerViewMemos.layoutManager = LinearLayoutManager(context)
+        subscribeToUiChanges(adapter)
 
         // Register menu items and handle menu click events
         setupMenu()

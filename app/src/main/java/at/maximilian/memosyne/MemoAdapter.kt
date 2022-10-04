@@ -2,18 +2,22 @@ package at.maximilian.memosyne
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.lifecycle.AndroidViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import at.maximilian.memosyne.databinding.MemoRowItemBinding
 import at.maximilian.memosyne.db.Memo
+import at.maximilian.memosyne.viewmodels.OverviewViewModel
 
 /**
  * Adapter for the [RecyclerView], derived from the [ListAdapter]
  */
-class MemoAdapter() :
+class MemoAdapter(private val viewModel: OverviewViewModel) :
     ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
 
     interface OnItemClickListener {
@@ -23,12 +27,12 @@ class MemoAdapter() :
     class MemoViewHolder(private val binding: MemoRowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Memo) {
+        fun bind(item: Memo, viewModel: OverviewViewModel) {
             binding.apply {
                 textViewMemoTitle.text = item.title
             }
             itemView.findViewById<ImageButton>(R.id.imageButton_removeMemo).setOnClickListener {
-                Log.d("Delete Memo", "Deleting memo with id ${item.uid} and title ${item.title}")
+                viewModel.deleteMemo(item)
             }
         }
     }
@@ -40,7 +44,7 @@ class MemoAdapter() :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val memo = getItem(position)
-        (holder as MemoViewHolder).bind(memo)
+        (holder as MemoViewHolder).bind(memo, viewModel)
     }
 }
 
