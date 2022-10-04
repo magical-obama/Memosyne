@@ -1,7 +1,9 @@
 package at.maximilian.memosyne
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +13,12 @@ import at.maximilian.memosyne.db.Memo
 /**
  * Adapter for the [RecyclerView], derived from the [ListAdapter]
  */
-class MemoAdapter : ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
+class MemoAdapter() :
+    ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback()) {
+
+    interface OnItemClickListener {
+        fun onItemClick(item: Memo)
+    }
 
     class MemoViewHolder(private val binding: MemoRowItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -19,6 +26,9 @@ class MemoAdapter : ListAdapter<Memo, RecyclerView.ViewHolder>(MemoDiffCallback(
         fun bind(item: Memo) {
             binding.apply {
                 textViewMemoTitle.text = item.title
+            }
+            itemView.findViewById<ImageButton>(R.id.imageButton_removeMemo).setOnClickListener {
+                Log.d("Delete Memo", "Deleting memo with id ${item.uid} and title ${item.title}")
             }
         }
     }
