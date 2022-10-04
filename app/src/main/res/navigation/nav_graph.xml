@@ -22,7 +22,9 @@
         android:id="@+id/AddMemoFragment"
         android:name="at.maximilian.memosyne.fragments.AddMemoFragment"
         android:label="@string/add_memo_fragment_label"
-        tools:layout="@layout/fragment_add_memo" />
+        tools:layout="@layout/fragment_add_memo" >
+        <argument android:name="memo_to_edit" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="at.maximilian.memosyne.fragments.SettingsFragment"

@@ -1,7 +1,6 @@
 package at.maximilian.memosyne.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import at.maximilian.memosyne.MemoAdapter
-import at.maximilian.memosyne.MemoAdapter.OnItemClickListener
 import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import at.maximilian.memosyne.db.Memo
@@ -51,7 +49,7 @@ class OverviewFragment : Fragment() {
         }
 
         // Setup the recycler view
-        val adapter = MemoAdapter(viewModel)
+        val adapter = MemoAdapter(viewModel, findNavController())
         binding.recyclerViewMemos.adapter = adapter
         binding.recyclerViewMemos.layoutManager = LinearLayoutManager(context)
         subscribeToUiChanges(adapter)
