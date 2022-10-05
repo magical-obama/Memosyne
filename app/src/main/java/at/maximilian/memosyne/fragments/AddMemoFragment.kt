@@ -38,17 +38,21 @@ class AddMemoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val memoId = arguments?.getInt("memo_to_edit_id")
+        var editMemo: Memo? = null
+        if (memoId != null && memoId != -1) {
+            editMemo = viewModel.getMemoById(memoId)
+        }
 
-        binding.editTextMemoTitle.setText(viewModel.title)
-        binding.editTextMemoContent.setText(viewModel.content)
+        binding.editTextMemoTitle.setText(editMemo?.title ?: viewModel.title)
+        binding.editTextMemoContent.setText(editMemo?.content ?: viewModel.content)
 
         view.findViewById<Button>(R.id.btn_add_new_memo).setOnClickListener {
-            val memo =
-                Memo(
-                    uid = null,
-                    title = binding.editTextMemoTitle.text.toString(),
-                    content = binding.editTextMemoContent.text.toString()
-                )
+            val memo = editMemo ?: Memo(
+                uid = null,
+                title = binding.editTextMemoTitle.text.toString(),
+                content = binding.editTextMemoContent.text.toString()
+            )
             if (memo.title.isBlank()) {
                 Snackbar.make(view, "You need to give the memo a title", Snackbar.LENGTH_SHORT)
                     .show()

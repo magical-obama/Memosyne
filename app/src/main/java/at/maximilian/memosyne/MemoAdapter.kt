@@ -36,8 +36,14 @@ class MemoAdapter(
                 viewModel.deleteMemo(item)
             }
 
+            val editBundle = Bundle()
+            editBundle.putInt("memo_to_edit_id", item.uid!!)
+
             itemView.setOnClickListener {
-                navController.navigate(R.id.action_OverviewFragment_to_AddMemoFragment)
+                navController.navigate(
+                    R.id.action_OverviewFragment_to_AddMemoFragment,
+                    editBundle
+                )
             }
         }
     }

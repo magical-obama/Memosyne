@@ -26,4 +26,6 @@ class AddMemoViewModel(application: Application) : AndroidViewModel(application)
             repository.insertMemo(memo)
         }
     }
+
+    fun getMemoById(memoId: Int) = repository.getMemoById(memoId)
 }

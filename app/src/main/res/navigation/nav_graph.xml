@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/action_OverviewFragment_to_AddMemoFragment"
-            app:destination="@id/AddMemoFragment" />
+            app:destination="@id/AddMemoFragment" >
+            <argument
+                android:name="memo_to_edit_id"
+                android:defaultValue="-1" />
+        </action>
         <action
             android:id="@+id/action_OverviewFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
@@ -23,7 +27,8 @@
         android:name="at.maximilian.memosyne.fragments.AddMemoFragment"
         android:label="@string/add_memo_fragment_label"
         tools:layout="@layout/fragment_add_memo" >
-        <argument android:name="memo_to_edit" />
+        <argument android:name="memo_to_edit_id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
