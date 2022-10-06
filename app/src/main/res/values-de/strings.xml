@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Memosyne</string>
     <string name="action_settings">Einstellungen</string>
     <string name="overview_fragment_label">Memos</string>
-    <string name="add_memo_fragment_label">Neues Memo</string>
+    <string name="add_memo_fragment_label">Memo Bearbeiten</string>
     <string name="settings_fragment_label">Einstellungen</string>
     <string name="description_fab">Fab zum hinzufügen eines Memos</string>
     <string name="memo_title_hint">Memo Titel</string>
     <string name="add_a_new_memo_button">Memo hinzufügen</string>
+    <string name="remove_memo_button_label">Memo entfernen</string>
+    <string name="edit_memo_button_text">Memo bearbeiten</string>
+    <string name="theme_array_label_follow_system">Systemstandard</string>
+    <string name="theme_array_label_light_mode">Hell</string>
+    <string name="theme_array_label_dark_mode">Dunkel</string>
+    <string name="preferences_title_general">Generell</string>
 </resources>

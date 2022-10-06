@@ -5,34 +5,41 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/default_margin">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_memoItem"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="4dp">
+            android:layout_margin="4dp">
 
             <TextView
                 android:id="@+id/textView_memoTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton_removeMemo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Memo 1" />
 
             <ImageButton
                 android:id="@+id/imageButton_removeMemo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/remove_memo_button_label"
                 android:scaleType="fitCenter"

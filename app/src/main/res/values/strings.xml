@@ -3,11 +3,18 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="overview_fragment_label">Memos</string>
-    <string name="add_memo_fragment_label">New Memo</string>
+    <string name="add_memo_fragment_label">Edit Memo</string>
     <string name="settings_fragment_label">Settings</string>
 
     <string name="description_fab">Fab for adding a memo</string>
     <string name="memo_title_hint">Memo title</string>
     <string name="add_a_new_memo_button">Add memo</string>
     <string name="remove_memo_button_label">Remove the Memo</string>
+    <string name="edit_memo_button_text">Edit Memo</string>
+
+    <string name="theme_array_label_follow_system">Follow system</string>
+    <string name="theme_array_label_light_mode">Light Mode</string>
+    <string name="theme_array_label_dark_mode">Dark Mode</string>
+    <string name="preferences_title_general">General</string>
+    <string name="preference_theme_title" translatable="false">Theme</string>
 </resources>

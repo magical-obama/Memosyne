@@ -5,6 +5,7 @@ import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,19 +16,16 @@ import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.FragmentOverviewBinding
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.viewmodels.OverviewViewModel
+import at.maximilian.memosyne.viewmodels.SharedViewModel
 
 /**
  * [Fragment] used for displaying all memo's currently stored
  */
 class OverviewFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = OverviewFragment()
-    }
-
     private var _binding: FragmentOverviewBinding? = null
     private val viewModel: OverviewViewModel by viewModels()
-
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -45,11 +43,12 @@ class OverviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.fabAddMemo.setOnClickListener {
+            sharedViewModel.select()
             findNavController().navigate(R.id.action_OverviewFragment_to_AddMemoFragment)
         }
 
         // Setup the recycler view
-        val adapter = MemoAdapter(viewModel, findNavController())
+        val adapter = MemoAdapter(viewModel, sharedViewModel, findNavController())
         binding.recyclerViewMemos.adapter = adapter
         binding.recyclerViewMemos.layoutManager = LinearLayoutManager(context)
         subscribeToUiChanges(adapter)

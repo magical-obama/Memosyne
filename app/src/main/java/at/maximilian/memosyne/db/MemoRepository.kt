@@ -2,9 +2,6 @@ package at.maximilian.memosyne.db
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.coroutineScope
 
 /**
  * Repository for the Memo class.

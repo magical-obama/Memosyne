@@ -10,9 +10,9 @@ import androidx.room.PrimaryKey
  * @param title The memo's title
  * @param content The memo's content
  */
-@Entity
+@Entity(tableName = "Memos")
 data class Memo(
-    @PrimaryKey(autoGenerate = true) val uid: Int?,
-    @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "content") val content: String
+    @PrimaryKey(autoGenerate = true) val uid: Int? = null,
+    @ColumnInfo(name = "title") var title: String,
+    @ColumnInfo(name = "content") var content: String
 )
