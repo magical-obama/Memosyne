@@ -27,19 +27,20 @@
 
             <ImageView
                 android:id="@+id/imageView_author_portrait"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="24dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/author_portrait" />
 
             <TextView
                 android:id="@+id/textView_author_bio"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
-                android:text="  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices sit amet lectus a dapibus. Maecenas vestibulum pretium nibh eget rutrum. Vestibulum id tortor nec nulla convallis feugiat in ut enim. Proin sed lacus rutrum, imperdiet ante nec, sodales orci. Vestibulum rutrum fermentum ante, et sagittis massa congue et. Phasellus non metus sed metus blandit iaculis in at nunc. Nam nec arcu ultricies, efficitur risus at, varius dolor. Nulla quis odio id dui faucibus faucibus. Vestibulum molestie vestibulum justo eu aliquam.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Phasellus suscipit magna mi, ac tempus arcu fermentum in. Vivamus rutrum, tellus vel commodo viverra, velit mi posuere orci, et luctus tellus ipsum eget mauris. Nam et turpis at odio tempor volutpat sed sit amet sem. Morbi interdum venenatis dolor, non ultricies massa cursus id. Suspendisse in justo rhoncus, feugiat mauris sed, sollicitudin turpis. Suspendisse consectetur neque purus, eget rhoncus felis vulputate sit amet. Nulla id ipsum tincidunt, ultricies arcu eu, scelerisque orci. " />
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices sit amet lectus a dapibus. Maecenas vestibulum pretium nibh eget rutrum. Vestibulum id tortor nec nulla convallis feugiat in ut enim. Proin sed lacus rutrum, imperdiet ante nec, sodales orci. Vestibulum rutrum fermentum ante, et sagittis massa congue et. Phasellus non metus sed metus blandit iaculis in at nunc. Nam nec arcu ultricies, efficitur risus at, varius dolor. Nulla quis odio id dui faucibus faucibus. Vestibulum molestie vestibulum justo eu aliquam.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Phasellus suscipit magna mi, ac tempus arcu fermentum in. Vivamus rutrum, tellus vel commodo viverra, velit mi posuere orci, et luctus tellus ipsum eget mauris. Nam et turpis at odio tempor volutpat sed sit amet sem. Morbi interdum venenatis dolor, non ultricies massa cursus id. Suspendisse in justo rhoncus, feugiat mauris sed, sollicitudin turpis. Suspendisse consectetur neque purus, eget rhoncus felis vulputate sit amet. Nulla id ipsum tincidunt, ultricies arcu eu, scelerisque orci. " />
         </LinearLayout>
     </ScrollView>
 
