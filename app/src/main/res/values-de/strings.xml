@@ -15,4 +15,5 @@
     <string name="preferences_title_general">Generell</string>
     <string name="about_me_menu_title">Über Mich</string>
     <string name="snackbar_title_needed">Du musst dem Memo einen Titel geben!</string>
+    <string name="author_portrait_description">Ein Portrait des Autors der App</string>
 </resources>

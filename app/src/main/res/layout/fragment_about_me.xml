@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AboutMeFragment">
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/author_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <ImageView
+            android:id="@+id/imageView_author_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/author_portrait_description"
+            app:srcCompat="@drawable/author_portrait" />
+
+        <TextView
+            android:id="@+id/textView_author_bio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_margin="24dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices sit amet lectus a dapibus. Maecenas vestibulum pretium nibh eget rutrum. Vestibulum id tortor nec nulla convallis feugiat in ut enim. Proin sed lacus rutrum, imperdiet ante nec, sodales orci. Vestibulum rutrum fermentum ante, et sagittis massa congue et. Phasellus non metus sed metus blandit iaculis in at nunc. Nam nec arcu ultricies, efficitur risus at, varius dolor. Nulla quis odio id dui faucibus faucibus. Vestibulum molestie vestibulum justo eu aliquam.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Phasellus suscipit magna mi, ac tempus arcu fermentum in. Vivamus rutrum, tellus vel commodo viverra, velit mi posuere orci, et luctus tellus ipsum eget mauris. Nam et turpis at odio tempor volutpat sed sit amet sem. Morbi interdum venenatis dolor, non ultricies massa cursus id. Suspendisse in justo rhoncus, feugiat mauris sed, sollicitudin turpis. Suspendisse consectetur neque purus, eget rhoncus felis vulputate sit amet. Nulla id ipsum tincidunt, ultricies arcu eu, scelerisque orci. "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView_author_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Maximilian Schwärzler"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-            <ImageView
-                android:id="@+id/imageView_author_portrait"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="24dp"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/author_portrait" />
-
-            <TextView
-                android:id="@+id/textView_author_bio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices sit amet lectus a dapibus. Maecenas vestibulum pretium nibh eget rutrum. Vestibulum id tortor nec nulla convallis feugiat in ut enim. Proin sed lacus rutrum, imperdiet ante nec, sodales orci. Vestibulum rutrum fermentum ante, et sagittis massa congue et. Phasellus non metus sed metus blandit iaculis in at nunc. Nam nec arcu ultricies, efficitur risus at, varius dolor. Nulla quis odio id dui faucibus faucibus. Vestibulum molestie vestibulum justo eu aliquam.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Phasellus suscipit magna mi, ac tempus arcu fermentum in. Vivamus rutrum, tellus vel commodo viverra, velit mi posuere orci, et luctus tellus ipsum eget mauris. Nam et turpis at odio tempor volutpat sed sit amet sem. Morbi interdum venenatis dolor, non ultricies massa cursus id. Suspendisse in justo rhoncus, feugiat mauris sed, sollicitudin turpis. Suspendisse consectetur neque purus, eget rhoncus felis vulputate sit amet. Nulla id ipsum tincidunt, ultricies arcu eu, scelerisque orci. " />
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>
+</ScrollView>

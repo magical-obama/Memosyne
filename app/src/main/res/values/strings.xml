@@ -19,4 +19,7 @@
     <string name="preference_theme_title" translatable="false">Theme</string>
     <string name="about_me_menu_title">About Me</string>
     <string name="snackbar_title_needed">You need to give the memo a title!</string>
+    <string name="author_name" translatable="false">Maximilian Schwärzler</string>
+    <string name="author_portrait_description">A portrait of the app\'s author</string>
+    <string name="memo_content_hint" translatable="false">Memo</string>
 </resources>
