@@ -16,4 +16,5 @@
     <string name="about_me_menu_title">Über Mich</string>
     <string name="snackbar_title_needed">Du musst dem Memo einen Titel geben!</string>
     <string name="author_portrait_description">Ein Portrait des Autors der App</string>
+    <string name="open_in_app_icon_description">In App öffnen Icon</string>
 </resources>

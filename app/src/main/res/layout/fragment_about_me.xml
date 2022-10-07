@@ -36,6 +36,78 @@
             android:layout_margin="24dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices sit amet lectus a dapibus. Maecenas vestibulum pretium nibh eget rutrum. Vestibulum id tortor nec nulla convallis feugiat in ut enim. Proin sed lacus rutrum, imperdiet ante nec, sodales orci. Vestibulum rutrum fermentum ante, et sagittis massa congue et. Phasellus non metus sed metus blandit iaculis in at nunc. Nam nec arcu ultricies, efficitur risus at, varius dolor. Nulla quis odio id dui faucibus faucibus. Vestibulum molestie vestibulum justo eu aliquam.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Phasellus suscipit magna mi, ac tempus arcu fermentum in. Vivamus rutrum, tellus vel commodo viverra, velit mi posuere orci, et luctus tellus ipsum eget mauris. Nam et turpis at odio tempor volutpat sed sit amet sem. Morbi interdum venenatis dolor, non ultricies massa cursus id. Suspendisse in justo rhoncus, feugiat mauris sed, sollicitudin turpis. Suspendisse consectetur neque purus, eget rhoncus felis vulputate sit amet. Nulla id ipsum tincidunt, ultricies arcu eu, scelerisque orci. "
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_githubLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:contentDescription="Github logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/github_icon_64px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:text="magical-obama"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <ImageView
+                android:contentDescription="@string/open_in_app_icon_description"
+                app:tint="?android:attr/textColorPrimary"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_open_link" />
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerInsetStart="16dp"
+            app:dividerInsetEnd="16dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_instagramLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:contentDescription="Instagram logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/instagram_icon_64x_transparent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:text="max.schwaerzler"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <ImageView
+                android:contentDescription="@string/open_in_app_icon_description"
+                app:tint="?android:attr/textColorPrimary"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_open_link" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -22,4 +22,7 @@
     <string name="author_name" translatable="false">Maximilian Schwärzler</string>
     <string name="author_portrait_description">A portrait of the app\'s author</string>
     <string name="memo_content_hint" translatable="false">Memo</string>
+    <string name="link_github_profile" translatable="false">https://github.com/magical-obama</string>
+    <string name="link_instagram_profile" translatable="false">https://www.instagram.com/max.schwaerzler/</string>
+    <string name="open_in_app_icon_description">Open in app icon</string>
 </resources>

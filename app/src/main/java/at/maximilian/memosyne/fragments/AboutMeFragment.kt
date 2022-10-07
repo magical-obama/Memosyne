@@ -1,5 +1,7 @@
 package at.maximilian.memosyne.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +28,16 @@ class AboutMeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.linearLayoutGithubLink.setOnClickListener {
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_github_profile)))
+            startActivity(intent)
+        }
 
+        binding.linearLayoutInstagramLink.setOnClickListener {
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_instagram_profile)))
+            startActivity(intent)
+        }
     }
 }
