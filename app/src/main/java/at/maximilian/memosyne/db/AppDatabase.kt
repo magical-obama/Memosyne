@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import at.maximilian.memosyne.App
 
 /**
  * The application-wide database class
@@ -18,7 +17,7 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         /**
-         * Get the App's database (only used by [App])
+         * Get the App's database
          * @param context Application context
          */
         fun getInstance(context: Context): AppDatabase =
