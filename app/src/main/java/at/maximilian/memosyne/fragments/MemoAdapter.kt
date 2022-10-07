@@ -1,4 +1,4 @@
-package at.maximilian.memosyne
+package at.maximilian.memosyne.fragments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import at.maximilian.memosyne.R
 import at.maximilian.memosyne.databinding.MemoRowItemBinding
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.viewmodels.OverviewViewModel
