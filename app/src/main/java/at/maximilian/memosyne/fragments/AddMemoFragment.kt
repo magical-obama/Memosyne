@@ -1,7 +1,6 @@
 package at.maximilian.memosyne.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,10 +20,6 @@ import com.google.android.material.snackbar.Snackbar
  */
 class AddMemoFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = AddMemoFragment()
-    }
-
     private var _binding: FragmentAddMemoBinding? = null
     private val viewModel: AddMemoViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -42,7 +37,6 @@ class AddMemoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val isNewMemo = sharedViewModel.selected == null
-
         if (!isNewMemo) {
             val memo = sharedViewModel.selected!!.value!!
             binding.btnAddNewMemo.text = getString(R.string.edit_memo_button_text)
@@ -52,37 +46,29 @@ class AddMemoFragment : Fragment() {
 
         binding.btnAddNewMemo.setOnClickListener {
             if (binding.editTextMemoTitle.text.toString().isBlank()) {
-                Snackbar.make(view, "You need to give the memo a title", Snackbar.LENGTH_SHORT)
+                Snackbar.make(
+                    view,
+                    getString(R.string.snackbar_title_needed),
+                    Snackbar.LENGTH_SHORT
+                )
                     .show()
                 return@setOnClickListener
             }
             val memo: Memo
             if (isNewMemo) {
-                Log.d("NewMemoOrNot", "This is a new Memo!")
+                // Log.d("NewMemoOrNot", "This is a new Memo!")
                 memo = Memo(
                     title = binding.editTextMemoTitle.text.toString(),
                     content = binding.editTextMemoContent.text.toString()
                 )
             } else {
                 memo = sharedViewModel.selected!!.value!!
-                Log.d("NewMemoOrNot", "This is a old Memo with title ${memo.title}!")
+                // Log.d("NewMemoOrNot", "This is a old Memo with title ${memo.title}!")
                 memo.title = binding.editTextMemoTitle.text.toString()
                 memo.content = binding.editTextMemoContent.text.toString()
             }
             viewModel.insertMemo(memo)
             findNavController().navigateUp()
-//            val memo = editMemo ?: Memo(
-//                uid = null,
-//                title = binding.editTextMemoTitle.text.toString(),
-//                content = binding.editTextMemoContent.text.toString()
-//            )
-//            if (memo.title.isBlank()) {
-//                Snackbar.make(view, "You need to give the memo a title", Snackbar.LENGTH_SHORT)
-//                    .show()
-//                return@setOnClickListener
-//            }
-//            viewModel.insertMemo(memo)
-//            findNavController().navigateUp()
         }
     }
 

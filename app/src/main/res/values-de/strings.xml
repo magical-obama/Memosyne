@@ -14,4 +14,5 @@
     <string name="theme_array_label_dark_mode">Dunkel</string>
     <string name="preferences_title_general">Generell</string>
     <string name="about_me_menu_title">Über Mich</string>
+    <string name="snackbar_title_needed">Du musst dem Memo einen Titel geben!</string>
 </resources>

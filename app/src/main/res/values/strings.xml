@@ -18,4 +18,5 @@
     <string name="preferences_title_general">General</string>
     <string name="preference_theme_title" translatable="false">Theme</string>
     <string name="about_me_menu_title">About Me</string>
+    <string name="snackbar_title_needed">You need to give the memo a title!</string>
 </resources>
