@@ -77,6 +77,10 @@ class OverviewFragment : Fragment() {
                         findNavController().navigate(R.id.action_OverviewFragment_to_settingsFragment)
                         return true
                     }
+                    R.id.action_about_me -> {
+                        findNavController().navigate(R.id.action_OverviewFragment_to_AboutMeFragment)
+                        return true
+                    }
                     else -> false
                 }
             }

@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_OverviewFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_OverviewFragment_to_AboutMeFragment"
+            app:destination="@id/AboutMeFragment" />
     </fragment>
     <fragment
         android:id="@+id/AddMemoFragment"
@@ -27,4 +30,9 @@
         android:id="@+id/settingsFragment"
         android:name="at.maximilian.memosyne.fragments.SettingsFragment"
         android:label="@string/settings_fragment_label" />
+    <fragment
+        android:id="@+id/AboutMeFragment"
+        android:name="at.maximilian.memosyne.fragments.AboutMeFragment"
+        android:label="@string/about_me_menu_title"
+        tools:layout="@layout/fragment_about_me" />
 </navigation>
