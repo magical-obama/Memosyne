@@ -1,5 +1,6 @@
 package at.maximilian.memosyne.fragments
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -37,6 +38,16 @@ class MemoAdapter(
             }
             itemView.findViewById<ImageButton>(R.id.imageButton_removeMemo).setOnClickListener {
                 viewModel.deleteMemo(item)
+            }
+
+            itemView.findViewById<ImageButton>(R.id.imageButton_shareMemo).setOnClickListener {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, item.title)
+                    putExtra(Intent.EXTRA_TEXT, item.content)
+                }
+                it.context.startActivity(intent)
             }
 
             itemView.setOnClickListener {

@@ -25,4 +25,5 @@
     <string name="link_github_profile" translatable="false">https://github.com/magical-obama</string>
     <string name="link_instagram_profile" translatable="false">https://www.instagram.com/max.schwaerzler/</string>
     <string name="open_in_app_icon_description">Open in app icon</string>
+    <string name="share_memo_button_label">Share memo</string>
 </resources>
