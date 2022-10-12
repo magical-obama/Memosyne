@@ -1,6 +1,7 @@
 package at.maximilian.memosyne.fragments
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -34,7 +35,13 @@ class MemoAdapter(
             navController: NavController
         ) {
             binding.apply {
-                textViewMemoTitle.text = item.title
+//                textViewMemoTitle.text = item.title
+                if (item.title.isBlank()) {
+                    textViewMemoTitle.text = "No title"
+                    textViewMemoTitle.setTypeface(textViewMemoTitle.typeface, Typeface.ITALIC)
+                } else {
+                    textViewMemoTitle.text = item.title
+                }
             }
             itemView.findViewById<ImageButton>(R.id.imageButton_removeMemo).setOnClickListener {
                 viewModel.deleteMemo(item)

@@ -3,7 +3,7 @@ package at.maximilian.memosyne.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Date
+import java.util.*
 
 /**
  * The main class for a Memo
@@ -16,5 +16,5 @@ data class Memo(
     @PrimaryKey(autoGenerate = true) val uid: Int? = null,
     @ColumnInfo(name = "title") var title: String,
     @ColumnInfo(name = "content") var content: String,
-    @ColumnInfo(name = "createDate") var creationDate: Date
+    @ColumnInfo(name = "createDate") var creationDate: Date = Calendar.getInstance().time
 )

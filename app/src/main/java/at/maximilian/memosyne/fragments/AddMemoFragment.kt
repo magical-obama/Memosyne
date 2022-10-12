@@ -13,7 +13,6 @@ import at.maximilian.memosyne.databinding.FragmentAddMemoBinding
 import at.maximilian.memosyne.db.Memo
 import at.maximilian.memosyne.viewmodels.AddMemoViewModel
 import at.maximilian.memosyne.viewmodels.SharedViewModel
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * [Fragment] for creating a new Memo
@@ -45,15 +44,15 @@ class AddMemoFragment : Fragment() {
         }
 
         binding.btnAddNewMemo.setOnClickListener {
-            if (binding.editTextMemoTitle.text.toString().isBlank()) {
-                Snackbar.make(
-                    view,
-                    getString(R.string.snackbar_title_needed),
-                    Snackbar.LENGTH_SHORT
-                )
-                    .show()
-                return@setOnClickListener
-            }
+//            if (binding.editTextMemoTitle.text.toString().isBlank()) {
+//                Snackbar.make(
+//                    view,
+//                    getString(R.string.snackbar_title_needed),
+//                    Snackbar.LENGTH_SHORT
+//                )
+//                    .show()
+//                return@setOnClickListener
+//            }
             val memo: Memo
             if (isNewMemo) {
                 // Log.d("NewMemoOrNot", "This is a new Memo!")
